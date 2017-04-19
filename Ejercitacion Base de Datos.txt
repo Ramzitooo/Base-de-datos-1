@@ -1,0 +1,23 @@
+DEFINICIONES DE DATOS(DDL).
+
+MANIPULACION DE DATOS(DML)
+DESCRIBE empleados//Esto es para que muestro toda la descripcion del la tabla.
+CONSTRAINTS.
+    Ejercicio 3
+    1-
+        CREATE TABLE empleados( 
+        cod_empleado int, 
+        nombre varchar(25), 
+        apellido varchar(25), 
+        tipo_doc varchar(25), 
+        num_doc int, 
+        categoria varchar(25), 
+        CONSTRAINT pk_cod_empleado PRIMARY KEY(cod_empleado), 
+        CONSTRAINT ck_cod_empleado CHECK (cod_empleado>=100 AND cod_empleado<=1000), 
+        CONSTRAINT uq_tipo_doc UNIQUE(tipo_doc,num_doc), 
+        CONSTRAINT ck_categoria CHECK(categoria="senior" OR categoria="semi senior" OR categoria="junior"))
+
+        CREATE TABLE oficinas (
+        cod_ofic int,
+        descripcion varchar(25),
+        CONSTRAINT fk_cod_ofic FOREIGN KEY (cod_ofic)REFERENCES empleados(num_doc));
